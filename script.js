@@ -1,20 +1,23 @@
-// Load game in iframe
+// Load game into the game area
 function loadGame(url) {
-  document.getElementById("game-area").innerHTML =
-    `<iframe src="${url}" width="100%" height="600px" frameborder="0"></iframe>`;
+  const area = document.getElementById('game-area');
+  area.innerHTML = `<iframe src="${url}" width="100%" height="100%" style="border:none;"></iframe>`;
 }
 
-// Search games
-function searchGames() {
-  let input = document.getElementById('search').value.toLowerCase();
-  let cards = document.getElementsByClassName('card');
-  for (let i = 0; i < cards.length; i++) {
-    let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-    cards[i].style.display = title.includes(input) ? '' : 'none';
-  }
-}
+// Dark/light mode toggle
+const modeButton = document.getElementById('modeToggle');
+modeButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  modeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+});
 
-// Dark / Light Mode Toggle
-function toggleMode() {
-  document.body.classList.toggle('light-mode');
-}
+// Search functionality
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', () => {
+  const cards = document.querySelectorAll('.card');
+  const query = searchInput.value.toLowerCase();
+  cards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    card.style.display = title.includes(query) ? 'flex' : 'none';
+  });
+});
