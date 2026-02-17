@@ -1,58 +1,57 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-/* Background */
 body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #6a11cb);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
-/* Title */
-.title {
-  color: white;
-  font-size: 40px;
-  margin-bottom: 40px;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
 }
 
-/* Grid Layout */
-.games-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 25px;
-  width: 100%;
-  max-width: 1100px;
+header h1 {
+    margin: 0;
 }
 
-/* Game Cards */
-.game-card {
-  aspect-ratio: 1 / 1; /* Perfect squares */
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.2);
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 10px 0 0 0;
 }
 
-/* Hover Effect */
-.game-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+#hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #eee;
+}
+
+#features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.feature-box {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #222;
+    color: white;
 }
