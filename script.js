@@ -1,23 +1,42 @@
-// Load game into the game area
+const gameContainer = document.getElementById("game-container");
+const gameFrame = document.getElementById("game-frame");
+
+/* LOAD GAME ONLY WHEN CLICKED */
 function loadGame(url) {
-  const area = document.getElementById('game-area');
-  area.innerHTML = `<iframe src="${url}" width="100%" height="100%" style="border:none;"></iframe>`;
+  gameFrame.src = url;
+  gameContainer.classList.remove("hidden");
+  window.scrollTo({ top: gameContainer.offsetTop - 20, behavior: "smooth" });
 }
 
-// Dark/light mode toggle
-const modeButton = document.getElementById('modeToggle');
-modeButton.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  modeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+/* CLOSE GAME */
+function closeGame() {
+  gameFrame.src = "";
+  gameContainer.classList.add("hidden");
+}
+
+/* FULLSCREEN FUNCTION */
+function fullscreenGame() {
+  if (gameFrame.requestFullscreen) {
+    gameFrame.requestFullscreen();
+  }
+}
+
+/* DARK MODE */
+const modeToggle = document.getElementById("modeToggle");
+
+modeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
 });
 
-// Search functionality
-const searchInput = document.getElementById('search');
-searchInput.addEventListener('input', () => {
-  const cards = document.querySelectorAll('.card');
+/* SEARCH */
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", () => {
   const query = searchInput.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
   cards.forEach(card => {
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    card.style.display = title.includes(query) ? 'flex' : 'none';
+    const title = card.innerText.toLowerCase();
+    card.style.display = title.includes(query) ? "flex" : "none";
   });
 });
