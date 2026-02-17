@@ -7,38 +7,53 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
     <h1>BartGamez</h1>
-    <button id="modeToggle">🌙 Dark Mode</button>
-    <input type="text" id="search" placeholder="Search games...">
+    <div class="header-controls">
+      <input type="text" id="search" placeholder="Search games...">
+      <button id="modeToggle">🌙</button>
+    </div>
   </header>
 
   <main>
+
+    <!-- GAME GRID -->
     <div class="game-list">
-      <div class="card" onclick="loadGame('https://example.com/game1')">
-        <h3>Game 1</h3>
+      <div class="card" onclick="loadGame('https://example.com/2048')">
+        <h3>2048</h3>
       </div>
-      <div class="card" onclick="loadGame('https://example.com/game2')">
-        <h3>Game 2</h3>
+
+      <div class="card" onclick="loadGame('https://example.com/slope')">
+        <h3>Slope</h3>
       </div>
-      <div class="card" onclick="loadGame('https://example.com/game3')">
-        <h3>Game 3</h3>
+
+      <div class="card" onclick="loadGame('https://example.com/tetris')">
+        <h3>Tetris</h3>
       </div>
-      <div class="card" onclick="loadGame('https://example.com/game4')">
-        <h3>Game 4</h3>
+
+      <div class="card" onclick="loadGame('https://example.com/run3')">
+        <h3>Run 3</h3>
       </div>
-      <div class="card" onclick="loadGame('https://example.com/game5')">
-        <h3>Game 5</h3>
+
+      <div class="card" onclick="loadGame('https://example.com/motox3m')">
+        <h3>Moto X3M</h3>
       </div>
     </div>
 
-    <div id="game-area">
-      <p>Select a game to play!</p>
+    <!-- GAME PLAYER (HIDDEN UNTIL CLICKED) -->
+    <div id="game-container" class="hidden">
+      <div class="game-topbar">
+        <button onclick="closeGame()">✖ Close</button>
+        <button onclick="fullscreenGame()">⛶ Fullscreen</button>
+      </div>
+      <iframe id="game-frame" src=""></iframe>
     </div>
+
   </main>
 
   <footer>
-    <p>© 2026 BartGamez - Play free online games</p>
+    <p>© 2026 BartGamez</p>
   </footer>
 
   <script src="script.js"></script>
