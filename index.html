@@ -9,7 +9,6 @@
 <body>
 
 <header>
-
   <div class="nav-left">
     <a href="#">Horror</a>
     <a href="#">FNAF</a>
@@ -24,43 +23,39 @@
   <div class="nav-right">
     <input type="text" id="search" placeholder="Search...">
   </div>
-
 </header>
 
 <main>
-
   <div class="game-grid">
 
     <div class="game-card" onclick="openGame('https://example.com/2048')">
-      <div class="thumb"></div>
+      <div class="thumb thumb1"></div>
       <p>2048</p>
     </div>
 
     <div class="game-card" onclick="openGame('https://example.com/slope')">
-      <div class="thumb"></div>
+      <div class="thumb thumb2"></div>
       <p>Slope</p>
     </div>
 
     <div class="game-card" onclick="openGame('https://example.com/tetris')">
-      <div class="thumb"></div>
+      <div class="thumb thumb3"></div>
       <p>Tetris</p>
     </div>
 
     <div class="game-card" onclick="openGame('https://example.com/run3')">
-      <div class="thumb"></div>
+      <div class="thumb thumb4"></div>
       <p>Run 3</p>
     </div>
 
     <div class="game-card" onclick="openGame('https://example.com/motox3m')">
-      <div class="thumb"></div>
+      <div class="thumb thumb5"></div>
       <p>Moto X3M</p>
     </div>
 
   </div>
-
 </main>
 
-<!-- GAME OVERLAY -->
 <div id="game-overlay" class="hidden">
   <div class="overlay-top">
     <button onclick="closeGame()">✖ Close</button>
