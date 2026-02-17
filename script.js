@@ -1,6 +1,9 @@
 const overlay = document.getElementById("game-overlay");
 const frame = document.getElementById("game-frame");
 
+/* Make sure overlay starts hidden */
+overlay.classList.add("hidden");
+
 function openGame(url) {
   frame.src = url;
   overlay.classList.remove("hidden");
@@ -17,6 +20,7 @@ function fullscreenGame() {
   }
 }
 
+/* SEARCH */
 const searchInput = document.getElementById("search");
 
 searchInput.addEventListener("input", () => {
