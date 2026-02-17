@@ -1,46 +1,23 @@
-const gameContainer = document.getElementById("game-container");
-const gameFrame = document.getElementById("game-frame");
-const gameControls = document.getElementById("game-controls");
-
-/* LOAD GAME */
+// Load game into the game area
 function loadGame(url) {
-  gameFrame.src = url;
-  gameContainer.classList.remove("hidden");
-  gameControls.style.display = "flex";
-  window.scrollTo({ top: gameContainer.offsetTop - 20, behavior: "smooth" });
+  const area = document.getElementById('game-area');
+  area.innerHTML = `<iframe src="${url}" width="100%" height="100%" style="border:none;"></iframe>`;
 }
 
-/* CLOSE GAME */
-function closeGame() {
-  gameFrame.src = "";
-  gameControls.style.display = "none";
-  gameContainer.classList.add("hidden");
-}
-
-/* FULLSCREEN */
-function fullscreenGame() {
-  if (gameFrame.requestFullscreen) {
-    gameFrame.requestFullscreen();
-  }
-}
-
-/* DARK MODE */
-const modeToggle = document.getElementById("modeToggle");
-
-modeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+// Dark/light mode toggle
+const modeButton = document.getElementById('modeToggle');
+modeButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  modeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
 });
 
-/* SEARCH */
-const searchInput = document.getElementById("search");
-
-searchInput.addEventListener("input", () => {
+// Search functionality
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', () => {
+  const cards = document.querySelectorAll('.card');
   const query = searchInput.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
-
   cards.forEach(card => {
-    const title = card.innerText.toLowerCase();
-    card.style.display = title.includes(query) ? "flex" : "none";
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    card.style.display = title.includes(query) ? 'flex' : 'none';
   });
 });
-
