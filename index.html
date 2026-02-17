@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BartGamez - Free Online Games</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BartGamez</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>BartGamez</h1>
-    <div class="header-controls">
-      <input type="text" id="search" placeholder="Search games...">
-      <button id="modeToggle">🌙</button>
-    </div>
-  </header>
+<header>
 
-  <main>
+  <div class="nav-left">
+    <a href="#">Horror</a>
+    <a href="#">FNAF</a>
+    <a href="#">Backrooms</a>
+    <a href="#">Indie</a>
+  </div>
 
-    <!-- GAME GRID -->
-    <div class="game-list">
-      <div class="card" onclick="loadGame('https://example.com/2048')">
-        <h3>2048</h3>
-      </div>
+  <div class="logo">
+    BARTGAMEZ
+  </div>
 
-      <div class="card" onclick="loadGame('https://example.com/slope')">
-        <h3>Slope</h3>
-      </div>
+  <div class="nav-right">
+    <input type="text" id="search" placeholder="Search...">
+  </div>
 
-      <div class="card" onclick="loadGame('https://example.com/tetris')">
-        <h3>Tetris</h3>
-      </div>
+</header>
 
-      <div class="card" onclick="loadGame('https://example.com/run3')">
-        <h3>Run 3</h3>
-      </div>
+<main>
 
-      <div class="card" onclick="loadGame('https://example.com/motox3m')">
-        <h3>Moto X3M</h3>
-      </div>
+  <div class="game-grid">
+
+    <div class="game-card" onclick="openGame('https://example.com/2048')">
+      <div class="thumb"></div>
+      <p>2048</p>
     </div>
 
-    <!-- GAME PLAYER (HIDDEN UNTIL CLICKED) -->
-    <div id="game-container" class="hidden">
-      <div class="game-topbar">
-        <button onclick="closeGame()">✖ Close</button>
-        <button onclick="fullscreenGame()">⛶ Fullscreen</button>
-      </div>
-      <iframe id="game-frame" src=""></iframe>
+    <div class="game-card" onclick="openGame('https://example.com/slope')">
+      <div class="thumb"></div>
+      <p>Slope</p>
     </div>
 
-  </main>
+    <div class="game-card" onclick="openGame('https://example.com/tetris')">
+      <div class="thumb"></div>
+      <p>Tetris</p>
+    </div>
 
-  <footer>
-    <p>© 2026 BartGamez</p>
-  </footer>
+    <div class="game-card" onclick="openGame('https://example.com/run3')">
+      <div class="thumb"></div>
+      <p>Run 3</p>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="game-card" onclick="openGame('https://example.com/motox3m')">
+      <div class="thumb"></div>
+      <p>Moto X3M</p>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- GAME OVERLAY -->
+<div id="game-overlay" class="hidden">
+  <div class="overlay-top">
+    <button onclick="closeGame()">✖ Close</button>
+    <button onclick="fullscreenGame()">⛶ Fullscreen</button>
+  </div>
+  <iframe id="game-frame"></iframe>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
